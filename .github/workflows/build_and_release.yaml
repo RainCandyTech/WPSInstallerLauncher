@@ -1,0 +1,44 @@
+name: Build And Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  build_and_release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v2
+        with:
+          msbuild-architecture: x64
+
+      - name: Build x64
+        run: msbuild -m -p:Configuration=Release -p:Platform=x64
+
+      - name: Build x86
+        run: msbuild -m -p:Configuration=Release -p:Platform=x86
+
+      - name: Rename
+        run: |
+          Rename-Item -Path x64/Release/ncrypt.dll -NewName ncrypt64.dll
+          Rename-Item -Path Win32/Release/Anchor.dll -NewName Anchor32.dll
+          Rename-Item -Path x64/Release/msi.dll -NewName msi64.dll
+          Rename-Item -Path Win32/Release/Launcher.exe -NewName Launcher32.exe
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          fail_on_unmatched_files: true
+          files: |
+            x64/MainRelease/ncrypt64.dll
+            Win32/MainRelease/ncrypt32.dll
+            x64/PacketRelease/msi64.dll
+            Win32/PacketRelease/msi32.dll
