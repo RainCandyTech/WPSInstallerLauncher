@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Release|Win32">
@@ -67,6 +67,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -87,7 +88,16 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main.c" />
+    <ClCompile Include="CommandLineBuilder.cc" />
+    <ClCompile Include="LauncherPaths.cc" />
+    <ClCompile Include="Main.cc" />
+    <ClCompile Include="RemoteLibrary.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CommandLineBuilder.h" />
+    <ClInclude Include="LauncherPaths.h" />
+    <ClInclude Include="RemoteLibrary.h" />
+    <ClInclude Include="WinHandle.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources\Resource.rc" />
