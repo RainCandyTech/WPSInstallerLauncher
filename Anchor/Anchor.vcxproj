@@ -50,7 +50,7 @@
     <EmbedManifest>false</EmbedManifest>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>Anchor</TargetName>
+    <TargetName>Anchor32</TargetName>
     <IncludePath>$(ProjectDir);$(ProjectDir)Utils;$(ProjectDir)Detours;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -59,7 +59,7 @@
     <EmbedManifest>false</EmbedManifest>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>Anchor</TargetName>
+    <TargetName>Anchor64</TargetName>
     <IncludePath>$(ProjectDir);$(ProjectDir)Utils;$(ProjectDir)Detours;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup>

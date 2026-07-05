@@ -50,14 +50,14 @@
     <GenerateManifest>false</GenerateManifest>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>Launcher</TargetName>
+    <TargetName>Launcher32</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <GenerateManifest>false</GenerateManifest>
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>Launcher</TargetName>
+    <TargetName>Launcher64</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>

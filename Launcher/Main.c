@@ -44,7 +44,13 @@ static BOOL BuildPayloadPath(LPWSTR path, DWORD cchPath) {
         return FALSE;
     }
 
-    return wcscat_s(path, cchPath, L"Anchor.dll") == 0;
+#ifdef _WIN64
+    const wchar_t* payload = L"Anchor64.dll";
+#else
+    const wchar_t* payload = L"Anchor32.dll";
+#endif // _WIN64
+
+    return wcscat_s(path, cchPath, payload) == 0;
 }
 
 static LPWSTR BuildCommandLine(LPCWSTR exePath) {
